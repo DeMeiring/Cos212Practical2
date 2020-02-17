@@ -35,8 +35,13 @@ abstract class OrganisingList {
     public static int sumRec(ListNode node) {
 
         //Your code goes here
+        if(node.next==null){
+            return node.key;
+        }else{
+            return sumRec(node.next)+node.key;
+        }
 
-    }
+    } //TODO:imp sumRec
 
     /**
      * Calculate and set the data for the given node.
@@ -46,8 +51,13 @@ abstract class OrganisingList {
     public static int dataRec(ListNode node) {
 
         //Your code goes here
+        if(node.next==null){
+            return node.key;
+        }else{
+            return (node.key* sumRec(node))-dataRec(node.next);
+        }
 
-    }
+    } //TODO:imp dataRec
 
 
     //Organising List functions
@@ -64,10 +74,24 @@ abstract class OrganisingList {
      * @return true if the key is in the list, otherwise false
      */
     public boolean contains(Integer key) {
-
+        ListNode curr;
         //Your code goes here
-
+        if(root==null){ //if the list is empty
+            return false;
+        }else if(root.key==key){
+            return true;
+        }else{
+            curr=root;
+            while(curr.next!=null && curr.key!=key){
+                curr=curr.next;
+            }
+            if(curr.key==key){
+                return true;
+            }
+        }
+        return false;
     }
+
 
     /**
      * Insert a new key into the linked list.
@@ -78,7 +102,20 @@ abstract class OrganisingList {
     public void insert(Integer key) {
 
         //Your code goes here
-
+        ListNode curr;
+        ListNode newNode = new ListNode(key);
+        if(root==null){ //make newNode the root when the list does not yet exist and or is empty
+            root = newNode;
+        }else if(contains(key)){   //if key is already present then do nothing
+            return;
+        }else{
+            curr=root;
+            while(curr.next!=null){
+                curr=curr.next;
+            }
+            curr.next=newNode;
+            calculateData();
+        }
     }
 	
     /**
@@ -89,6 +126,23 @@ abstract class OrganisingList {
     public void delete(Integer key) {
 
         //Your code goes here
+        if(root==null){ //if list is empty
+            return;
+        }else if(!contains(key)){     //key is not in list
+            return;
+        }else if(root.key==key){ //root is being deleted
+            root=root.next;
+        }else{  //key is present and list does exist
+            ListNode prev,curr;
+            prev=curr=root;
+
+            while(curr.next !=null && curr.key!=key){   //loop through list till you find the desired node
+                prev=curr;
+                curr=curr.next;
+            }
+            prev.next = curr.next;  //uncouple curr node from list
+            curr = null;
+        }
 
     }
 

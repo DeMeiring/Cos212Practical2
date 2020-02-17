@@ -55,9 +55,29 @@ public class Main {
 
     public static void main(String[] args) 
     {
-        OrganisingList mvflist = new MoveToFrontOrganisingList();
+        //contains seems to work
+        //insert seems to work
+        //delete seems to work
 
-        mvflist.insert(10);
+        OrganisingList mvflist = new MoveToFrontOrganisingList();
+        mvflist.insert(1);
+        mvflist.insert(4);
+        mvflist.insert(-3);
+        mvflist.insert(9);
+        mvflist.insert(1);
+
+        mvflist.delete(1);
+        mvflist.delete(4);
+        mvflist.delete(-2);
+        mvflist.delete(9);
+
+        mvflist.insert(21);
+        searchList(mvflist,21);
+        printList(mvflist);
+
+
+
+        /*mvflist.insert(10);
         mvflist.insert(5);
         mvflist.insert(9);
         mvflist.insert(5);
@@ -94,7 +114,7 @@ public class Main {
         printList(tlist);
 
         System.out.println(tlist.contains(2));
-	System.out.println(tlist.contains(9));
+	System.out.println(tlist.contains(9));*/
         
         /*
         Expected output:
