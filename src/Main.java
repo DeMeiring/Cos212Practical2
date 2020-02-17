@@ -59,27 +59,9 @@ public class Main {
         //insert seems to work
         //delete seems to work
 
-       OrganisingList tran = new TransposeOrganisingList();
-        tran.insert(1);
-        tran.insert(2);
-        tran.insert(3);
-        tran.insert(6);
-        tran.insert(80);
-        tran.insert(1);
-        printList(tran);
-        searchList(tran,80);
-        searchList(tran,80);
-        searchList(tran,80);
-        searchList(tran,80);
-        searchList(tran,80);
-        searchList(tran,80);
-        searchList(tran,80);
-        searchList(tran,80);
+        OrganisingList mvflist = new MoveToFrontOrganisingList();
 
-        printList(tran);
-
-
-        /*mvflist.insert(10);
+        mvflist.insert(10);
         mvflist.insert(5);
         mvflist.insert(9);
         mvflist.insert(5);
@@ -116,7 +98,7 @@ public class Main {
         printList(tlist);
 
         System.out.println(tlist.contains(2));
-	System.out.println(tlist.contains(9));*/
+	System.out.println(tlist.contains(9));
         
         /*
         Expected output:
