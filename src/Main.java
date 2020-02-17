@@ -59,22 +59,24 @@ public class Main {
         //insert seems to work
         //delete seems to work
 
-        OrganisingList mvflist = new MoveToFrontOrganisingList();
-        mvflist.insert(1);
-        mvflist.insert(4);
-        mvflist.insert(-3);
-        mvflist.insert(9);
-        mvflist.insert(1);
+       OrganisingList tran = new TransposeOrganisingList();
+        tran.insert(1);
+        tran.insert(2);
+        tran.insert(3);
+        tran.insert(6);
+        tran.insert(80);
+        tran.insert(1);
+        printList(tran);
+        searchList(tran,80);
+        searchList(tran,80);
+        searchList(tran,80);
+        searchList(tran,80);
+        searchList(tran,80);
+        searchList(tran,80);
+        searchList(tran,80);
+        searchList(tran,80);
 
-        mvflist.delete(1);
-        mvflist.delete(4);
-        mvflist.delete(-2);
-        mvflist.delete(9);
-
-        mvflist.insert(21);
-        searchList(mvflist,21);
-        printList(mvflist);
-
+        printList(tran);
 
 
         /*mvflist.insert(10);
