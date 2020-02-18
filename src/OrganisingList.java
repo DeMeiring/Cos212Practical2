@@ -54,6 +54,7 @@ abstract class OrganisingList {
         if(node.next==null){
             return node.key;
         }else{
+            node.data = (node.key* sumRec(node))-dataRec(node.next);
             return (node.key* sumRec(node))-dataRec(node.next);
         }
 
@@ -132,6 +133,7 @@ abstract class OrganisingList {
             return;
         }else if(root.key==key){ //root is being deleted
             root=root.next;
+            calculateData();
         }else{  //key is present and list does exist
             ListNode prev,curr;
             prev=curr=root;
@@ -142,8 +144,8 @@ abstract class OrganisingList {
             }
             prev.next = curr.next;  //uncouple curr node from list
             curr = null;
+           calculateData();
         }
-
     }
 
 
