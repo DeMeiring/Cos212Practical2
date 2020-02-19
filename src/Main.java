@@ -65,6 +65,7 @@ public class Main {
         mvflist.insert(5);
         mvflist.insert(9);
         mvflist.insert(5);
+       // mvflist.insert(20);
 
         printKeys(mvflist);
         printList(mvflist);

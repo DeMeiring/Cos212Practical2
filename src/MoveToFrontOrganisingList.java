@@ -25,7 +25,7 @@ public class MoveToFrontOrganisingList extends OrganisingList {
         }else if(!contains(key)){ //list is not empty but does not contain desired key
             return null;
         }else if(root.key==key){
-            ListNode retNode = root;
+            ListNode retNode = new ListNode(root.key,root.data) ;
             calculateData();
             return retNode;
         }else{  //list is not empty and key is in list
@@ -35,11 +35,11 @@ public class MoveToFrontOrganisingList extends OrganisingList {
                 prev=curr;
                 curr=curr.next;
             }
-            calculateData();
-            retNode=curr;
+            retNode= new ListNode(curr.key,curr.data);
             prev.next = curr.next;
             curr.next = root;
             root=curr;
+            calculateData();
             return retNode;
         }
 

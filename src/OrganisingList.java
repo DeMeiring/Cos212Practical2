@@ -52,6 +52,7 @@ abstract class OrganisingList {
 
         //Your code goes here
         if(node.next==null){
+            node.data= node.key;
             return node.key;
         }else{
             node.data = (node.key* sumRec(node))-dataRec(node.next);
@@ -107,6 +108,7 @@ abstract class OrganisingList {
         ListNode newNode = new ListNode(key);
         if(root==null){ //make newNode the root when the list does not yet exist and or is empty
             root = newNode;
+            calculateData();
         }else if(contains(key)){   //if key is already present then do nothing
             return;
         }else{

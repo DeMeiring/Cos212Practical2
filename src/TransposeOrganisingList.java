@@ -21,18 +21,18 @@ public class TransposeOrganisingList extends OrganisingList {
         if(root==null){
             return null;
         }else if(root.key==key){
-            ListNode retNode = root;
+            ListNode retNode = new ListNode(root.key,root.data);
             calculateData();
             return  retNode;
         }else if(!contains(key)) {
             return null;
         }else if(root.next.key==key){
             ListNode curr,retNode;
-            calculateData();
-            retNode=curr = root.next;
+            curr = root.next;
+            retNode = new ListNode(curr.key,curr.data);
             root.next=curr.next;
             root = curr;
-
+            calculateData();
             return retNode;
         }else{
             ListNode  pred,prev,curr,retNode;
@@ -43,12 +43,12 @@ public class TransposeOrganisingList extends OrganisingList {
                 prev=curr;
                 curr=curr.next;
             }
-            calculateData();
-            retNode = curr;
+
+            retNode = new ListNode(curr.key,curr.data);
             pred.next=curr;
             prev.next = curr.next;
             curr.next=prev;
-
+            calculateData();
             return retNode;
         }
 
